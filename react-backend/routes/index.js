@@ -4,7 +4,7 @@ var GitHubApi = require("github");
 
 /* GET home page. */
 router.get('/', function(req, res, next) {
-  res.render('index', { title: 'Express testee' });
+  res.render('index', { title: 'Express' });
 });
 
 router.get('/getFollowers/:user', function(req, res, next) {
