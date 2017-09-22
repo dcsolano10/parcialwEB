@@ -19,13 +19,13 @@ MongoClient.connect(url, function(err, db){
       console.log(body);
       // var id = require('mongodb').ObjectID(body.id);
       col.findOne({"login" :body.login}).then(function (user) {
-        console.log(user===null)
+        //console.log(user===null)
         if(user===null)
         {
-
+        	col.insertOne({"login" :body.login, score: 1})
         }else{
-        user.score = user.score + 1;
-        console.log(user.score)
+        user.score = parseInt(user.score) + 1;
+        //console.log(user.score)
         col.updateOne({"login" :body.login}, user).then(function (mongoError, ej2) {
           res.send(ej2);
         })

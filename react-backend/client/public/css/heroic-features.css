@@ -76,7 +76,7 @@ body {
   .axis .domain {
   display: none;
   } 
-  .btn-send {
+  .btn-primary {
     color: #fff;
     background-color: #00b3b3;
     border-color: #00b3b3;
