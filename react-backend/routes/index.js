@@ -23,9 +23,11 @@ MongoClient.connect(url, function(err, db){
         if(user===null)
         {
         	col.insertOne({"login" :body.login, score: 1})
+        	res.send(1+'');
         }else{
         user.score = parseInt(user.score) + 1;
-        //console.log(user.score)
+        console.log(user.score)
+        res.send(user.score+'');
         col.updateOne({"login" :body.login}, user).then(function (mongoError, ej2) {
           res.send(ej2);
         })

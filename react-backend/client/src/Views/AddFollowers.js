@@ -21,13 +21,15 @@ class AddFollowers extends React.Component {
    }
 
    handleSelectOption(e){
-    console.log(this.props.login)
+    //console.log(this.props.login)
       var rate = {
         score: 1,
         login: this.props.login
       };
       axios.post('/rate', rate)
         .then(function (response) {
+          console.log(response.data)
+          alert("Tu recomendación ha sido almacenada! "+ rate.login + " tiene "+ response.data + " recomendaciones.")
 
         })
         .catch(function (error) {
