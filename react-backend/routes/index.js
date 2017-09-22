@@ -1,6 +1,18 @@
+"use strict";
+
 var express = require('express');
 var router = express.Router();
 var GitHubApi = require("github");
+var MongoClient = require("mongodb").MongoClient;
+
+var url = "mongodb://admin:adminadmin@ds147034.mlab.com:47034/examen1";
+
+MongoClient.connect(url, function(err, db){
+	if(err) throw err;
+	console.log("connected");
+});
+
+
 
 /* GET home page. */
 router.get('/', function(req, res, next) {
