@@ -53,7 +53,9 @@ body {
       font: 400 15px Lato, sans-serif;
       line-height: 1.8;
       color: #818181;
-  }
+  }h1 {
+      font-size: 80px;
+    }
   h2 {
       font-size: 26px;
       text-transform: uppercase;
@@ -74,8 +76,13 @@ body {
   .axis .domain {
   display: none;
   } 
+  .btn-send {
+    color: #fff;
+    background-color: #00b3b3;
+    border-color: #00b3b3;
+  }
   .jumbotron {
-      background-color: #00b3b3;
+      background-color: #009999;
       color: #fff;
       padding: 100px 25px;
       font-family: Montserrat, sans-serif;

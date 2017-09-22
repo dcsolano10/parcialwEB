@@ -10,6 +10,29 @@ var url = "mongodb://dianas:dianas@ds147034.mlab.com:47034/examen1";
 MongoClient.connect(url, function(err, db){
 	if(err) throw err;
 	console.log("connected");
+
+		//Guardar numero de visitas
+	  router.post('/rate', function (req, res) {
+      var body = req.body;
+      var col = db.collection('visitas');
+      console.log(body);
+      // var id = require('mongodb').ObjectID(body.id);
+      col.findOne({"name" :body.name}).then(function (player) {
+        console.log(player.score)
+        player.score = player.score * player.numRatings;
+        console.log(player.score)
+        player.score = (player.score + parseInt(body.score));
+        console.log(player.score);
+        player.score = player.score / (player.numRatings + 1)
+        console.log(player.score);
+        player.numRatings = player.numRatings + 1;
+        col.updateOne({"name" :body.name}, player).then(function (mongoError, ej2) {
+          res.send(ej2);
+        })
+      })
+
+    });
+
 });
 
 

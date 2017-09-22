@@ -16,7 +16,7 @@ constructor(props) {
 
   doParentToggle(selec){
     //console.log(selec);
-      this.setState({nextF: selec});
+      this.state.nextF= selec;
      //console.log(this.state.nextF.login);
      this.reSearch();
      this.render();
@@ -78,7 +78,7 @@ constructor(props) {
                       onChange={this.handleChange} placeholder="Type github id"/>
             </div>
             <div className="col-md-1">
-              <input type="submit" className="btn btn-primary" value="Search follower"/>
+              <input type="submit" className="btn btn-send" value="Search follower"/>
             </div>
           </div>
         </form>
@@ -102,7 +102,7 @@ constructor(props) {
         <br/>
             <div className="row text-center">
             {this.state.breadcrumb.map((user, i) =>
-            <h1 key={i}>{user.name}</h1>
+            <h4 key={i}>{user.name} > </h4>
             )}
           </div>
         <br/>

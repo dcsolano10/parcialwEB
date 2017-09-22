@@ -13,7 +13,7 @@ class AddFollowers extends React.Component {
    }
 
    doParentToggleFromChild(){ 
-    //console.log(this.props);
+    console.log(this.props);
     var s=this.props;
       this.props.parentToggle(s);
    }
