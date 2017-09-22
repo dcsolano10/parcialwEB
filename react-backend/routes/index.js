@@ -11,25 +11,26 @@ MongoClient.connect(url, function(err, db){
 	if(err) throw err;
 	console.log("connected");
 
-		//Guardar numero de visitas
+		//Guardar recomendaciones
 	  router.post('/rate', function (req, res) {
+	  	console.log("router")
       var body = req.body;
       var col = db.collection('visitas');
       console.log(body);
       // var id = require('mongodb').ObjectID(body.id);
-      col.findOne({"name" :body.name}).then(function (player) {
-        console.log(player.score)
-        player.score = player.score * player.numRatings;
-        console.log(player.score)
-        player.score = (player.score + parseInt(body.score));
-        console.log(player.score);
-        player.score = player.score / (player.numRatings + 1)
-        console.log(player.score);
-        player.numRatings = player.numRatings + 1;
-        col.updateOne({"name" :body.name}, player).then(function (mongoError, ej2) {
+      col.findOne({"login" :body.login}).then(function (user) {
+        console.log(user===null)
+        if(user===null)
+        {
+
+        }else{
+        user.score = user.score + 1;
+        console.log(user.score)
+        col.updateOne({"login" :body.login}, user).then(function (mongoError, ej2) {
           res.send(ej2);
         })
-      })
+		}     
+ 		})
 
     });
 

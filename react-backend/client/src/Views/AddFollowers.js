@@ -2,6 +2,8 @@ import React from 'react'
 import '../App.css';
 import '../PlayerStats.css';
 import '../App.css';
+import axios from 'axios';
+
 
 class AddFollowers extends React.Component {
 
@@ -18,6 +20,21 @@ class AddFollowers extends React.Component {
       this.props.parentToggle(s);
    }
 
+   handleSelectOption(e){
+    console.log(this.props.login)
+      var rate = {
+        score: 1,
+        login: this.props.login
+      };
+      axios.post('/rate', rate)
+        .then(function (response) {
+
+        })
+        .catch(function (error) {
+          console.log(error);
+        });
+  }
+
   render() {
 
     return <div className="col-lg-3 col-md-6 mb-4">
@@ -29,7 +46,9 @@ class AddFollowers extends React.Component {
           <a className="card-title" href={this.props.html_url}>Repository</a>
         </div>
         <div className="card-footer">
-          {<button className="btn btn-primary" onClick={this.doParentToggleFromChild} >{this.props.text} Find Out More!</button>}
+          {<button className="btn btn-primary" onClick={this.doParentToggleFromChild} >{this.props.text} Ver seguidores!</button>}
+          <br/><br/>
+          {<button className="btn btn-primary" onClick={this.handleSelectOption.bind(this)}>Recomendar</button>}
         </div>
       </div>
     </div>;
