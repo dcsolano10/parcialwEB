@@ -83,7 +83,7 @@ constructor(props) {
         <br/>
             <div className="row text-center">
                 {this.state.followers.map((user, i) =>
-                <AddFollowers key={i} avatar_url={user.avatar_url} login={user.login}/>
+                <AddFollowers key={i} avatar_url={user.avatar_url} login={user.login} html_url={user.html_url}/>
                 )}
             </div>
       </div>

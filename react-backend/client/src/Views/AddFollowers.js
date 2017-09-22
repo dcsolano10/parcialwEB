@@ -11,9 +11,11 @@ class AddFollowers extends React.Component {
         <img className="card-img-top" src={this.props.avatar_url} alt="Profile pic"></img>
         <div className="card-body">
           <h4 className="card-title">{this.props.login}</h4>
+          <br/>
+          <a className="card-title" href={this.props.html_url}>Repository</a>
         </div>
         <div className="card-footer">
-          {/*<button >Find Out More!</button>*/}
+          {<button className="btn btn-primary">Find Out More!</button>}
         </div>
       </div>
     </div>;
